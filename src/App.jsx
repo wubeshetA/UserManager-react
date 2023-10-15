@@ -7,11 +7,13 @@ function App() {
   return (
     <Router>
       <Navbar className=""/>
-      <div className="max-w-screen-xl mx-auto px-1 md:px-4 lg:px-4 bg-blue-400">
+      <div className="max-w-screen-xl mx-auto px-1 md:px-4 lg:px-4 bg-blue-400 ">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/logs" element={<Logs />} />
         </Routes>
+      </div>
+      <div className="bg-yellow-400 flex items-center flex-col bottom-0">FOOTER
       </div>
     </Router>
   );
