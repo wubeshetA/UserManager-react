@@ -1,7 +1,7 @@
 import UserForm from "./Request";
 import ResponseSection from "./Response";
-
-const ReqRespSection = () => {
+import PropTypes from "prop-types";
+const ReqRespSection = (props) => {
   return (
     <div className="flex flex-col lg:flex-row lg:items-start md:w-4/5 items-center lg:h-full ">
       <div className="m-5 md:w-3/4 lg:h-full flex flex-col border rounded border-blue-500">
@@ -10,7 +10,7 @@ const ReqRespSection = () => {
         </div>
         <hr/>
         <div className="h-3/4 flex w-full">
-          <UserForm />
+          <UserForm fetchUserData={props.fetchUserData} />
         </div>
       </div>
 
@@ -25,5 +25,8 @@ const ReqRespSection = () => {
       </div>
     </div>
   );
+};
+ReqRespSection.propTypes = {
+  fetchUserData: PropTypes.func.isRequired,
 };
 export default ReqRespSection;
