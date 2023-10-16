@@ -54,7 +54,7 @@ const RequestSection = () => {
     };
 
     return (
-        <div className="request-section">
+        <div className="request-section w-[400px] h-[450px] p-4 relative flex flex-col">
             {currentMethod === 'GET' && (
                 <div className="mb-4">
                     <label className="mr-2">User ID:</label>
@@ -67,7 +67,7 @@ const RequestSection = () => {
                     {currentMethod === 'PUT' && (
                         <div className="mb-4">
                             <label className="mr-2">User ID:</label>
-                            <input type="text" onChange={(e) => setId(e.target.value)} className="p-2 border rounded" />
+                            <input type="text" onChange={(e) => setId(e.target.value)} className="p-2 border rounded focus:border-blue-500" />
                         </div>
                     )}
                     <div className="mb-4">
@@ -120,15 +120,12 @@ const RequestSection = () => {
                 </div>
             )}
 
-            <button onClick={handleSubmit} className="p-2 bg-blue-500 text-white rounded">
-                Submit
-            </button>
+<div className="absolute bottom-4 left-0 right-0 flex justify-center">
+        <button onClick={handleSubmit} className="p-2 bg-blue-500 text-white rounded">
+          Submit
+        </button>
+      </div>
 
-            {/* {response && (
-                <div className="response-section mt-4 p-4 border rounded">
-                    <pre>{JSON.stringify(response, null, 2)}</pre>
-                </div>
-            )} */}
         </div>
     );
 };

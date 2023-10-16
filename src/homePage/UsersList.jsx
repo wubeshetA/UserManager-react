@@ -40,14 +40,14 @@ const UsersList = () => {
   };
 
   return (
-    <div className="flex flex-col justify-between min-h-full lg:w-4/5 w-full">
-      <div> 
+    <div className="flex flex-col lg:w-4/5 w-full">
+      <div className="flex-grow"> 
 
       <h1 className="text-2xl font-bold text-center my-3">Users List</h1>
       <div className="">
-        <table className="min-w-full table-auto w-full border-collapse border border-gray-300">
+        <table className="min-w-full table-auto w-full border border-blue-200">
           <thead>
-            <tr className="bg-gray-200">
+            <tr className="bg-blue-200">
               <th className="border px-4 py-2">ID</th>
               <th className="border px-4 py-2">Username</th>
               <th className="border px-4 py-2">Full Name</th>
@@ -58,6 +58,7 @@ const UsersList = () => {
         </table>
       </div>
       </div>
+      <div >
 
       <ReactPaginate
         className="flex justify-end my-5"
@@ -76,6 +77,8 @@ const UsersList = () => {
         disabledClassName={"paginationDisabled opacity-50 cursor-not-allowed"}
         activeClassName={"paginationActive bg-blue-500 text-white"}
       />
+      <hr/>
+      </div>
     </div>
   );
 };

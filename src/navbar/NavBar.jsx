@@ -10,12 +10,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white p-4 border-b-2 shadow-lg">
+    <nav className="bg-white p-4 w-screen border-b-1 shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-black text-2xl font-bold">LOGO</div>
         
         {/* Navbar items for large screens */}
-        <div className="hidden md:flex space-x-4">
+        <div className="hidden md:flex space-x-5 mr-10">
           <Link to="/" className="text-black">Home</Link>
           <Link to="/logs" className="text-black">Logs</Link>
         </div>

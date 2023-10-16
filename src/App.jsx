@@ -16,7 +16,7 @@ function App() {
           <Route path="/logs" element={<Logs />} />
         </Routes>
       </div>
-      <div className="bg-yellow-400 flex items-center flex-col bottom-0">FOOTER
+      <div className=" flex items-center flex-col bottom-0">
       </div>
     </Router>
   );

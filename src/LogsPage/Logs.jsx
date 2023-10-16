@@ -21,18 +21,21 @@ const Logs = () => {
   const displayLogs = logs
     .slice(pageNumber * logsPerPage, (pageNumber + 1) * logsPerPage)
     .map((log, index) => (
-      <div key={index} className="flex p-2 border-b border-gray-300">
-        <div className={`rounded-full h-6 w-6 mr-4 flex items-center justify-center
-          ${log.method === 'GET' ? 'bg-blue-500' :
-          log.method === 'POST' ? 'bg-green-500' :
-          log.method === 'PUT' ? 'bg-yellow-500' :
-          log.method === 'DELETE' ? 'bg-red-500' : 'bg-gray-500'}`}>
+      <div key={index} className="flex p-2 border-b lg:w-3/4 border-gray-300">
+        <div className={`rounded px-2 mr-4 flex items-center justify-center
+          ${log.method === 'GET' ? 'bg-blue-500 text-white' :
+          log.method === 'POST' ? 'bg-green-500 text-white' :
+          log.method === 'PUT' ? 'bg-yellow-200 text-black' :
+          log.method === 'DELETE' ? 'bg-red-600 text-white' : 'bg-gray-500'}`}>
           {log.method}
         </div>
         <div className="flex-1">
-          <div className="text-gray-800 font-semibold">{log.path}</div>
-          <div className="text-gray-600">{log.source}</div>
-          <div className="text-gray-600">{log.created_at}</div>
+          <div className='flex flex-wrap justify-between'>
+
+          <div className="text-gray-700 font-semibold">Requested path: {log.path}</div>
+          <div className="text-gray-600">Origin: {log.source}</div>
+          </div>
+          <div className="text-gray-600">Date: {log.created_at}</div>
         </div>
       </div>
     ));
@@ -48,18 +51,21 @@ const Logs = () => {
       <h1 className="text-2xl font-bold mb-4">Request Logs</h1>
       {displayLogs}
       <ReactPaginate
-        previousLabel={'Previous'}
-        nextLabel={'Next'}
+        className="flex justify-end my-5"
+        previousLabel={"<<"}
+        nextLabel={">>"}
         pageCount={pageCount}
         onPageChange={handlePageChange}
-        containerClassName={'pagination'}
-        pageClassName={'page-item'}
-        pageLinkClassName={'page-link'}
-        previousClassName={'page-item'}
-        nextClassName={'page-item'}
-        previousLinkClassName={'page-link'}
-        nextLinkClassName={'page-link'}
-        activeClassName={'active'}
+        containerClassName={"pagination flex justify-center space-x-2 my-4"}
+        pageLinkClassName={
+          "paginationLink border px-3 hover:bg-blue-200 rounded"
+        }
+        previousLinkClassName={
+          "previousButton border px-3 hover:bg-blue-200 rounded"
+        }
+        nextLinkClassName={"nextButton border px-3 hover:bg-blue-100 rounded"}
+        disabledClassName={"paginationDisabled opacity-50 cursor-not-allowed"}
+        activeClassName={"paginationActive bg-blue-500 text-white"}
       />
     </div>
   );
