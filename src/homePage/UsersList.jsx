@@ -11,7 +11,7 @@ const UsersList = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       fetchData();
-    }, 2000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -24,12 +24,12 @@ const UsersList = () => {
     .slice(pagesVisited, pagesVisited + usersPerPage)
     .map((user) => (
       <tr key={user.id}>
-        <td>{user.id}</td>
-        <td>{user.username}</td>
-        <td>
+        <td className="border px-4 py-2">{user.id}</td>
+        <td className="border px-4 py-2">{user.username}</td>
+        <td className="border px-4 py-2">
           {user.first_name} {user.last_name}
         </td>
-        <td>{user.email}</td>
+        <td className="border px-4 py-2">{user.email}</td>
       </tr>
     ));
 
@@ -40,17 +40,24 @@ const UsersList = () => {
   };
 
   return (
-    <div className="w-full lg:w-4/5">
+    <div className="flex flex-col justify-between min-h-full lg:w-4/5 w-full">
+      <div> 
+
       <h1 className="text-2xl font-bold text-center my-3">Users List</h1>
-      <table className="table-auto w-full border-gray-400 shadow-lg md:gap-x-10">
-        <thead>
-          <th>ID</th>
-          <th>Username</th>
-          <th>Full Name</th>
-          <th>Email</th>
-        </thead>
-        <tbody>{displayUsers}</tbody>
-      </table>
+      <div className="">
+        <table className="min-w-full table-auto w-full border-collapse border border-gray-300">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="border px-4 py-2">ID</th>
+              <th className="border px-4 py-2">Username</th>
+              <th className="border px-4 py-2">Full Name</th>
+              <th className="border px-4 py-2">Email</th>
+            </tr>
+          </thead>
+          <tbody>{displayUsers}</tbody>
+        </table>
+      </div>
+      </div>
 
       <ReactPaginate
         className="flex justify-end my-5"

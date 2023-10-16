@@ -39,6 +39,7 @@ const RequestSection = () => {
                 case 'DELETE':
                     if (window.confirm('Are you sure you want to delete this user?')) {
                         res = await axios.delete(url);
+                        
                     }
                     break;
                 default:
