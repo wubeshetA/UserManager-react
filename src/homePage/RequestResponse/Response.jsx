@@ -11,7 +11,6 @@ const ResponseSection = () => {
       {response && (
         <div className="response-section  ">
           <pre>{JSON.stringify(response, null, 2)}</pre>
-
         </div>
       )}
     </div>

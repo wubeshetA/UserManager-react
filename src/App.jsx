@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./navbar/NavBar";
-import Home from "./homePage/home";
+import Home from "./homePage/Home";
 import Logs from "./LogsPage/Logs";
 // import axios from 'axios';
 

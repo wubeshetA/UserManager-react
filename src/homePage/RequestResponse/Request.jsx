@@ -3,11 +3,15 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { setResponse } from "../../redux/responseSlice";
 import PropTypes from "prop-types";
+import { API_URL } from "../../const";
+
 
 
 const RequestSection = (props) => {
   // const [currentMethod, setMethod] = useState('GET');
   // set dispatch
+
+  
   const { currentMethod } = useSelector((state) => state.methodGetter);
   const dispatch = useDispatch();
   const [id, setId] = useState("");
@@ -24,7 +28,7 @@ const RequestSection = (props) => {
   const handleSubmit = async () => {
     try {
       let res;
-      const url = `http://127.0.0.1:8000/api/users/${id ? id + "/" : ""}`;
+      const url = `${API_URL}/api/users/${id ? id + "/" : ""}`;
 
       switch (currentMethod) {
         case "GET":
