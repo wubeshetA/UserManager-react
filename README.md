@@ -20,6 +20,6 @@ This is a web app built with React to do the CRUD operations on the USER model b
 This web app is deployed on Vercel. You can access the app on the following URL:
 
 ```
-https://rainbow-sports-wubeshet.vercel.app/
+https://rainbow-sports.vercel.app/
 
 ```
