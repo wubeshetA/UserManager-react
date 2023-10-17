@@ -5,13 +5,7 @@ import { setResponse } from "../../redux/responseSlice";
 import PropTypes from "prop-types";
 import { API_URL } from "../../const";
 
-
-
 const RequestSection = (props) => {
-  // const [currentMethod, setMethod] = useState('GET');
-  // set dispatch
-
-  
   const { currentMethod } = useSelector((state) => state.methodGetter);
   const dispatch = useDispatch();
   const [id, setId] = useState("");
@@ -55,6 +49,15 @@ const RequestSection = (props) => {
       console.error("There was an error!", error);
     }
     props.fetchUserData();
+    // clear from
+    setId("");
+    setUserData({
+      username: "",
+      first_name: "",
+      last_name: "",
+      email: "",
+      password: "",
+    });
   };
 
   return (
@@ -76,6 +79,7 @@ const RequestSection = (props) => {
             <div className="mb-4">
               <label className="mr-2">User ID:</label>
               <input
+                value={id}
                 type="text"
                 onChange={(e) => setId(e.target.value)}
                 className="p-2 border rounded focus:border-blue-500"
@@ -85,6 +89,7 @@ const RequestSection = (props) => {
           <div className="mb-4">
             <label className="mr-2">Username:</label>
             <input
+              value={userData.username}
               type="text"
               onChange={(e) =>
                 setUserData((prev) => ({ ...prev, username: e.target.value }))
@@ -95,6 +100,7 @@ const RequestSection = (props) => {
           <div className="mb-4">
             <label className="mr-2">First Name:</label>
             <input
+              value={userData.first_name}
               type="text"
               onChange={(e) =>
                 setUserData((prev) => ({ ...prev, first_name: e.target.value }))
@@ -105,6 +111,7 @@ const RequestSection = (props) => {
           <div className="mb-4">
             <label className="mr-2">Last Name:</label>
             <input
+              value={userData.last_name}
               type="text"
               onChange={(e) =>
                 setUserData((prev) => ({ ...prev, last_name: e.target.value }))
@@ -115,6 +122,7 @@ const RequestSection = (props) => {
           <div className="mb-4">
             <label className="mr-2">Email:</label>
             <input
+              value={userData.email}
               type="email"
               onChange={(e) =>
                 setUserData((prev) => ({ ...prev, email: e.target.value }))
@@ -125,6 +133,7 @@ const RequestSection = (props) => {
           <div className="mb-4">
             <label className="mr-2">Password:</label>
             <input
+              value={userData.password}
               type="password"
               onChange={(e) =>
                 setUserData((prev) => ({ ...prev, password: e.target.value }))
