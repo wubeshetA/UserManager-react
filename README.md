@@ -1,8 +1,25 @@
-# React + Vite
+# User requests Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a web app built with React to do the CRUD operations on the USER model backed with django and Django rest framework. It shows the list of users information in a table in a paginated way. It also shows logs of request made to the API from the home page of the app.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repository: `git clone https://github.com/wubeshetA/UserManager-react.git`
+2. Change into the project directory: `cd UserManager-react`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm run dev`
+
+## Tools and Technologies
+
+- React
+- Redux Toolkit
+- Tailwind CSS
+
+## Deployment
+
+This web app is deployed on Vercel. You can access the app on the following URL:
+
+```
+https://rainbow-sports-wubeshet.vercel.app/
+
+```
