@@ -16,10 +16,33 @@ const RequestSection = (props) => {
     email: "",
     password: "",
   });
+  const [formError, setFormError] = useState("");
 
   // const [response, setResponse] = useState(null);
 
   const handleSubmit = async () => {
+    setFormError("");
+
+    if (
+      currentMethod === "POST" &&
+      (!userData.username || !userData.email || !userData.password)
+    ) {
+      setFormError("Username, Email and Password are required!");
+      return;
+    }
+
+    if (currentMethod === "DELETE" && !id) {
+      setFormError("User ID is required!");
+      return;
+    }
+    if (
+      currentMethod === "PUT" &&
+      (!id || !userData.username || !userData.email || !userData.password)
+    ) {
+      setFormError("User ID, Username, Email and Password are required!");
+      return;
+    }
+
     try {
       let res;
       const url = `${API_URL}/api/users/${id ? id + "/" : ""}`;
@@ -62,6 +85,7 @@ const RequestSection = (props) => {
 
   return (
     <div className="request-section w-[400px] h-[450px] p-4 relative flex flex-col">
+      {formError && <p className="text-red-500">{formError}</p>}
       {currentMethod === "GET" && (
         <div className="mb-4">
           <label className="mr-2">User ID:</label>
