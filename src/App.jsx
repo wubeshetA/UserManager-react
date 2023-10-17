@@ -8,8 +8,8 @@ import Logs from "./LogsPage/Logs";
 
 function App() {
   return (
-    <Router>
-      <Navbar className=""/>
+    <Router >
+      <Navbar/>
       <div className="max-w-screen-xl mx-auto px-1 md:px-4 lg:px-4">
         <Routes>
           <Route path="/" element={<Home />} />
