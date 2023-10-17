@@ -17,8 +17,20 @@ const RequestSection = (props) => {
     password: "",
   });
   const [formError, setFormError] = useState("");
+  const [confirmDeleteOpen, setConfirmDeleteOpen] = useState(false);
 
-  // const [response, setResponse] = useState(null);
+  const handleConfirmDelete = async () => {
+    const url = `${API_URL}/api/users/${id ? id + "/" : ""}`;
+    try {
+      const res = await axios.delete(url);
+      dispatch(setResponse(res.data));
+    } catch (error) {
+      console.error("There was an error!", error);
+    }
+    props.fetchUserData();
+    setId("");
+    setConfirmDeleteOpen(false);
+  };
 
   const handleSubmit = async () => {
     setFormError("");
@@ -58,10 +70,8 @@ const RequestSection = (props) => {
           res = await axios.put(url, userData);
           break;
         case "DELETE":
-          if (window.confirm("Are you sure you want to delete this user?")) {
-            res = await axios.delete(url);
-          }
-          break;
+          setConfirmDeleteOpen(true);
+          return;
         default:
           break;
       }
@@ -187,6 +197,26 @@ const RequestSection = (props) => {
           Submit
         </button>
       </div>
+
+      {confirmDeleteOpen && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-10">
+          <div className="bg-white p-4 rounded">
+            <p>Are you sure you want to delete this user?</p>
+            <button
+              onClick={() => setConfirmDeleteOpen(false)}
+              className="p-1 m-2 bg-gray-300 text-black rounded"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleConfirmDelete}
+              className="p-1 m-2 bg-red-500 text-white rounded"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
